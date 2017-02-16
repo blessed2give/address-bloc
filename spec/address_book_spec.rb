@@ -150,4 +150,12 @@ RSpec.describe AddressBook do
       expect(entry).to be_nil
     end
   end
+
+  describe "#nuke" do
+    it "sets the value of entries to zero" do
+      book.import_from_csv("entries.csv")
+      book.nuke
+      expect(book.entries.size).to eq(0)
+    end
+  end
 end
